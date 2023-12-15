@@ -1,0 +1,146 @@
+    1  ip a
+    2  vim /etc/hosts
+    3  sudo -i
+    4  tmux
+    5  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml --roles-file /home/stack/templates/roles_data.yaml -e /home/stack/aide.yaml
+    6  subscription-manager --help
+    7  sudo -i
+    8  sudo -i
+    9  ip a
+   10  cat /etc/hosts|grep sate
+   11  ip a
+   12  tmux
+   13  ls /home/stack
+   14  pwd
+   15  mkdir octavia-certs
+   16  cd octavia-certs
+   17  mkdir newcerts private certs
+   18  chmod 700 private
+   19  touch index.txt
+   20  echo 01 > serial
+   21  openssl genrsa -passout pass:cc9609e1b83d42d5855275e2b9e8fb51 -des3 -out private/ca.key.pem 2048
+   22  openssl req -x509 -passin pass:cc9609e1b83d42d5855275e2b9e8fb51 -new -nodes -key private/ca.key.pem -config openssl.cnf -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=www.example.com" -days 3650 -out certs/ca.cert.pem
+   23  vim openssl.cnf
+   24  openssl req -x509 -passin pass:cc9609e1b83d42d5855275e2b9e8fb51 -new -nodes -key private/ca.key.pem -config openssl.cnf -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=www.example.com" -days 3650 -out certs/ca.cert.pem
+   25  openssl x509 -in certs/ca.cert.pem -text -noout
+   26  openssl req -newkey rsa:2048 -nodes -keyout client.key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=www.example.com" -out client.csr
+   27  openssl ca -passin pass:cc9609e1b83d42d5855275e2b9e8fb51 -config openssl.cnf -in client.csr -days 3650 -out client.pem -batch
+   28  cat client.pem client.key > client.cert.and.key.pem
+   29  rpm -qa|katello
+   30  rpm -qa|grep katello
+   31  sudo -i
+   32  ls
+   33  cd ..
+   34  ls
+   35  openstack undercloud install
+   36  vim /usr/share/openstack-tripleo-heat-templates/deployment/octavia/octavia-deployment-config.j2.yaml 
+   37  sudo vim /usr/share/openstack-tripleo-heat-templates/deployment/octavia/octavia-deployment-config.j2.yaml 
+   38  ls
+   39  vim templates/classroom-environment/40-octavia.yaml 
+   40  pwd
+   41  ls
+   42  pwd
+   43  ls
+   44  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   45  ls
+   46  source stackrc
+   47  source overcloudrc 
+   48  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   49  ip a
+   50  telnet
+   51  netstat -taunpe|grep 5000
+   52  vim /etc/hosts 
+   53  pwd
+   54  ls
+   55  keystoneauth1.exceptions.catalog.EndpointNotFound: publicURL endpoint for workflowv2 service in regionOne region not found
+   56  publicURL endpoint for workflowv2 service in regionOne region not found
+   57  sys:1: ResourceWarning: unclosed <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.25.250.200', 55690), raddr=('172.25.250.50', 5000)>
+   58  source stackrc 
+   59  vim stackrc 
+   60  vim overcloudrc 
+   61  source overcloudrc 
+   62  vim stackrc 
+   63  source stackrc
+   64  openstack image list
+   65  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   66  vim templates/classroom-environment/40-octavia.yaml 
+   67  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   68  source overcloudrc 
+   69  openstack images list
+   70  openstack image list
+   71  ping satellite-dle.ole.redhat.com
+   72  curl https://satellite-dle.ole.redhat.com
+   73  vim containers-prepare-parameter.yaml 
+   74  vim /etc/hosts
+   75  sudo -i
+   76  top
+   77  podman ps
+   78  sudo podman ps
+   79  sudo podman ps a
+   80  sudo podman ps -a
+   81  sudo podman images
+   82  ls
+   83  cat octavia-certs/client.cert.and.key.pem 
+   84  ls
+   85  cd octavia-certs/
+   86  ls
+   87  ls certs/
+   88  cat client.csr 
+   89  cat client.key 
+   90  ls
+   91  cat client.cert.and.key.pem 
+   92  ls
+   93  cat certs/
+   94  cat certs/ca.cert.pem 
+   95  ls
+   96  cat private/ca.key.pem 
+   97  ssh controller0
+   98  ssh compute-
+   99  ssh compute0
+  100  ssh compute1
+  101  sudo shutdown -h now
+  102  ll
+  103  source overcloudrc 
+  104  exit
+  105  source overcloudrc 
+  106  openstack network list
+  107  openstack network delete provider-datacentre 
+  108  openstack network list
+  109  openstack domain create Operations
+  110  openstack domain list
+  111  openstack project create --domain Operations Engineering
+  112  openstack project list --domain Operations
+  113  openstack user create --domain Operations --project Engineering --email Robert18@lab.example.com --password redhat Robert18
+  114  ll
+  115  history 
+  116  openstack user list --domain Operations
+  117  openstack user create --domain Operations --project Engineering --email John18@lab.example.com --password redhat John18
+  118  openstack user create --domain Operations --project Engineering --email William18@lab.example.com --password redhat William18
+  119  openstack role add --user Robert18 --user-domain Operations --project Engineering --project-domain Operations admin
+  120  openstack role add --user John18 --user-domain Operations --project Engineering --project-domain Operations admin
+  121  openstack role add --user William18 --user-domain Operations --project Engineering --project-domain Operations member
+  122  openstack role assignment list --project Engineering
+  123  openstack role assignment list --project Engineering --name 
+  124  openstack role assignment list --project Engineering --name --effective 
+  125  cp overcloudrc Robert18rc
+  126  vim Robert18rc 
+  127  source Robert18rc 
+  128  source overcloudrc 
+  129  vim Robert18rc 
+  130  source Robert18rc 
+  131  cp Robert18rc William18rc
+  132  cp Robert18rc John18rc
+  133  vim William18rc 
+  134  source William18rc 
+  135  vim John18rc 
+  136  source John18rc 
+  137  source Robert18rc 
+  138  openstack flavor create --disk 10 --ram 2048 --vcpus 2 m1.petite
+  139  openstack flavor list
+  140  wget http://materials.example.com/osp-small.qcow2
+  141  openstack image create --disk-format qcow2 --file osp-small.qcow2 --public web
+  142  openstack image list
+  143  openstack keypair create webkey > /home/stack/webkey.pem
+  144  chmod 600 webkey.pem 
+  145  openstack keypair list
+  146  history > ex210history
