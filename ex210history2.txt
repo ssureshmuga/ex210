@@ -1,0 +1,496 @@
+    1  ip a
+    2  vim /etc/hosts
+    3  sudo -i
+    4  tmux
+    5  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml --roles-file /home/stack/templates/roles_data.yaml -e /home/stack/aide.yaml
+    6  subscription-manager --help
+    7  sudo -i
+    8  sudo -i
+    9  ip a
+   10  cat /etc/hosts|grep sate
+   11  ip a
+   12  tmux
+   13  ls /home/stack
+   14  pwd
+   15  mkdir octavia-certs
+   16  cd octavia-certs
+   17  mkdir newcerts private certs
+   18  chmod 700 private
+   19  touch index.txt
+   20  echo 01 > serial
+   21  openssl genrsa -passout pass:cc9609e1b83d42d5855275e2b9e8fb51 -des3 -out private/ca.key.pem 2048
+   22  openssl req -x509 -passin pass:cc9609e1b83d42d5855275e2b9e8fb51 -new -nodes -key private/ca.key.pem -config openssl.cnf -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=www.example.com" -days 3650 -out certs/ca.cert.pem
+   23  vim openssl.cnf
+   24  openssl req -x509 -passin pass:cc9609e1b83d42d5855275e2b9e8fb51 -new -nodes -key private/ca.key.pem -config openssl.cnf -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=www.example.com" -days 3650 -out certs/ca.cert.pem
+   25  openssl x509 -in certs/ca.cert.pem -text -noout
+   26  openssl req -newkey rsa:2048 -nodes -keyout client.key -subj "/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=www.example.com" -out client.csr
+   27  openssl ca -passin pass:cc9609e1b83d42d5855275e2b9e8fb51 -config openssl.cnf -in client.csr -days 3650 -out client.pem -batch
+   28  cat client.pem client.key > client.cert.and.key.pem
+   29  rpm -qa|katello
+   30  rpm -qa|grep katello
+   31  sudo -i
+   32  ls
+   33  cd ..
+   34  ls
+   35  openstack undercloud install
+   36  vim /usr/share/openstack-tripleo-heat-templates/deployment/octavia/octavia-deployment-config.j2.yaml 
+   37  sudo vim /usr/share/openstack-tripleo-heat-templates/deployment/octavia/octavia-deployment-config.j2.yaml 
+   38  ls
+   39  vim templates/classroom-environment/40-octavia.yaml 
+   40  pwd
+   41  ls
+   42  pwd
+   43  ls
+   44  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   45  ls
+   46  source stackrc
+   47  source overcloudrc 
+   48  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   49  ip a
+   50  telnet
+   51  netstat -taunpe|grep 5000
+   52  vim /etc/hosts 
+   53  pwd
+   54  ls
+   55  keystoneauth1.exceptions.catalog.EndpointNotFound: publicURL endpoint for workflowv2 service in regionOne region not found
+   56  publicURL endpoint for workflowv2 service in regionOne region not found
+   57  sys:1: ResourceWarning: unclosed <socket.socket fd=4, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('172.25.250.200', 55690), raddr=('172.25.250.50', 5000)>
+   58  source stackrc 
+   59  vim stackrc 
+   60  vim overcloudrc 
+   61  source overcloudrc 
+   62  vim stackrc 
+   63  source stackrc
+   64  openstack image list
+   65  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   66  vim templates/classroom-environment/40-octavia.yaml 
+   67  openstack overcloud deploy --answers-file /home/stack/templates/overcloud-answers.yaml   --roles-file /home/stack/templates/roles_data.yaml   -e /home/stack/aide.yaml   -e /home/stack/templates/classroom-environment/00-node-info.yaml   -e /home/stack/templates/classroom-environment/02-custom-domain.yaml   -e /home/stack/templates/classroom-environment/04-custom-hostnames.yaml   -e /home/stack/templates/classroom-environment/10-inject-trust-anchor.yaml   -e /home/stack/templates/classroom-environment/12-low-memory-usage.yaml   -e /home/stack/templates/classroom-environment/14-disable-telemetry.yaml   -e /home/stack/templates/classroom-environment/16-telemetry-optimization.yaml   -e /home/stack/templates/classroom-environment/18-compute-extraconfig.yaml   -e /home/stack/templates/classroom-environment/22-change_root_password-env.yaml   -e /home/stack/templates/classroom-environment/24-admin-password.yaml   -e /home/stack/templates/classroom-environment/30-network-isolation.yaml   -e /home/stack/templates/classroom-environment/32-network-environment.yaml   -e /home/stack/templates/classroom-environment/34-ips-from-pool-all.yaml   -e /home/stack/templates/classroom-environment/36-fixed-ip-vips.yaml   -e /home/stack/templates/classroom-environment/40-octavia.yaml   -e /home/stack/templates/classroom-environment/42-neutron-ovn-dvr-ha.yaml   -e /home/stack/templates/classroom-environment/50-ceph-ansible.yaml   -e /home/stack/templates/classroom-environment/52-ceph-config.yaml   -e /home/stack/templates/classroom-environment/54-ceph-mds.yaml   -e /home/stack/templates/classroom-environment/55-manila-cephfsnative-config.yaml   -e /home/stack/templates/classroom-environment/95-idm-integration.yaml
+   68  source overcloudrc 
+   69  openstack images list
+   70  openstack image list
+   71  ping satellite-dle.ole.redhat.com
+   72  curl https://satellite-dle.ole.redhat.com
+   73  vim containers-prepare-parameter.yaml 
+   74  vim /etc/hosts
+   75  sudo -i
+   76  top
+   77  podman ps
+   78  sudo podman ps
+   79  sudo podman ps a
+   80  sudo podman ps -a
+   81  sudo podman images
+   82  ls
+   83  cat octavia-certs/client.cert.and.key.pem 
+   84  ls
+   85  cd octavia-certs/
+   86  ls
+   87  ls certs/
+   88  cat client.csr 
+   89  cat client.key 
+   90  ls
+   91  cat client.cert.and.key.pem 
+   92  ls
+   93  cat certs/
+   94  cat certs/ca.cert.pem 
+   95  ls
+   96  cat private/ca.key.pem 
+   97  ssh controller0
+   98  ssh compute-
+   99  ssh compute0
+  100  ssh compute1
+  101  sudo shutdown -h now
+  102  ll
+  103  source overcloudrc 
+  104  exit
+  105  source overcloudrc 
+  106  openstack network list
+  107  openstack network delete provider-datacentre 
+  108  openstack network list
+  109  openstack domain create Operations
+  110  openstack domain list
+  111  openstack project create --domain Operations Engineering
+  112  openstack project list --domain Operations
+  113  openstack user create --domain Operations --project Engineering --email Robert18@lab.example.com --password redhat Robert18
+  114  ll
+  115  history 
+  116  openstack user list --domain Operations
+  117  openstack user create --domain Operations --project Engineering --email John18@lab.example.com --password redhat John18
+  118  openstack user create --domain Operations --project Engineering --email William18@lab.example.com --password redhat William18
+  119  openstack role add --user Robert18 --user-domain Operations --project Engineering --project-domain Operations admin
+  120  openstack role add --user John18 --user-domain Operations --project Engineering --project-domain Operations admin
+  121  openstack role add --user William18 --user-domain Operations --project Engineering --project-domain Operations member
+  122  openstack role assignment list --project Engineering
+  123  openstack role assignment list --project Engineering --name 
+  124  openstack role assignment list --project Engineering --name --effective 
+  125  cp overcloudrc Robert18rc
+  126  vim Robert18rc 
+  127  source Robert18rc 
+  128  source overcloudrc 
+  129  vim Robert18rc 
+  130  source Robert18rc 
+  131  cp Robert18rc William18rc
+  132  cp Robert18rc John18rc
+  133  vim William18rc 
+  134  source William18rc 
+  135  vim John18rc 
+  136  source John18rc 
+  137  source Robert18rc 
+  138  openstack flavor create --disk 10 --ram 2048 --vcpus 2 m1.petite
+  139  openstack flavor list
+  140  wget http://materials.example.com/osp-small.qcow2
+  141  openstack image create --disk-format qcow2 --file osp-small.qcow2 --public web
+  142  openstack image list
+  143  openstack keypair create webkey > /home/stack/webkey.pem
+  144  chmod 600 webkey.pem 
+  145  openstack keypair list
+  146  history > ex210history
+  147  git clone https://github.com/ssureshmuga/ex210
+  148  cp ex210history ex210/
+  149  cd ex210/
+  150  ll
+  151  git add .
+  152  git commit -m "update"
+  153  git push
+  154  ll
+  155  git add .
+  156  git commit -m "update"
+  157  git config --global user.name Suresh
+  158  git config --global user.email suresh@example.com
+  159  git config --global -l
+  160  git config --global push.default simple
+  161  ll
+  162  git add .
+  163  git commit -m "update"
+  164  git push
+  165  cd
+  166  openstack security group list
+  167  openstack security group create ssh
+  168  openstack security group create web
+  169  openstack security group rule create --protocol icmp ssh
+  170  openstack security group rule create --protocol tcp --dst-port 22 ssh
+  171  openstack security group rule create --protocol tcp --dst-port 80 web
+  172  openstack security group list
+  173  openstack keypair delete webkey
+  174  openstack security group delete ssh 
+  175  openstack security group delete web
+  176  openstack security group list
+  177  source William18rc 
+  178  openstack keypair create webkey
+  179  openstack keypair create webkey > webkey.pem 
+  180  ll
+  181  rm webkey.pem 
+  182  ll
+  183  openstack keypair create webkey > webkey.pem 
+  184  source Robert18rc 
+  185  rm webkey.pem 
+  186  source William18rc 
+  187  openstack keypair create webkey > webkey.pem 
+  188  openstack keypair delete webkey
+  189  openstack keypair create webkey > webkey.pem 
+  190  chmod 600 webkey.pem 
+  191  openstack security group ssh
+  192  openstack security group create ssh
+  193  openstack security group create web
+  194  openstack security group rule create --protocol icmp ssh
+  195  openstack security group rule create --protocol tcp --dst-port 22 ssh
+  196  openstack security group rule create --protocol tcp --dst-port 80 web
+  197  openstack network create engnet 
+  198  openstack subnet create --dhcp --subnet-range 192.168.6.0/24 --network engnet engsubnet
+  199  source Robert18rc 
+  200  openstack network create --external --share --provider-network-type flat --provider-physical-network datacentre public
+  201  openstack subnet create --subnet-range 172.25.250.0/24 --allocation-pool start=172.25.250.101,end=172.25.250.110- --no-dhcp --network public external
+  202  openstack subnet create --subnet-range 172.25.250.0/24 --allocation-pool start=172.25.250.101,end=172.25.250.110 --no-dhcp --network public external
+  203  source William18rc 
+  204  openstack router create ex210router
+  205  openstack router set --external-gateway public ex210router 
+  206  openstack router add subnet ex210router engsubnet
+  207  source Robert18rc 
+  208  history > ex210history_Q1
+  209  cp ex210history_Q1 ex210
+  210  openstack network list
+  211  source overcloudrc 
+  212  openstack network delete provider-storage
+  213  source Robert18rc 
+  214  openstack network create --share --provider-network-type vlan --provider-physical-network storage storagenet
+  215  openstack subnet create --subnet-range 172.24.250.0/24 --allocation-pool start=172.24.250.101,end=172.24.250.109 --dhcp --network storagenet storage-subnet
+  216  vim web.sh
+  217  chmod a+x web.sh 
+  218  source William18rc 
+  219  openstack server create --flavor m1.petite --image web --network engnet --security-group ssh --security-group web --key-name webkey --user-data web.sh --wait webserver
+  220  openstack floating ip create public
+  221  openstack server add floating ip webserver 172.25.250.108
+  222  curl 172.25.250.108
+  223  curl http://172.25.250.108
+  224  ssh -i webkey.pem cloud-user@172.25.250.108
+  225  ls
+  226  cat web.sh 
+  227  vim web.sh 
+  228  openstack server delete webserver
+  229  openstack server create --flavor m1.petite --image web --network engnet --security-group ssh --security-group web --key-name webkey --user-data web.sh --wait webserver
+  230  openstack server add floating ip webserver 172.25.250.108
+  231  curl http://172.25.250.108
+  232  curl 172.25.250.108
+  233  ssh -i webkey.pem cloud-user@172.25.250.108
+  234  curl 172.25.250.108
+  235  lsblk 
+  236  ssh -i webkey.pem cloud-user@172.25.250.108
+  237  source Robert18rc 
+  238  openstack volume create --size 2 vol1
+  239  source William18rc 
+  240  openstack server add volume webserver vol1
+  241  ssh -i webkey.pem cloud-user@172.25.250.108
+  242  source Robert18rc 
+  243  openstack container create warehouse
+  244  openstack object create warehouse web.sh 
+  245  openstack object create warehouse webkey.pem 
+  246  openstack object list warehouse
+  247  openstack object show warehouse
+  248  openstack container show warehouse
+  249  openstack object show warehouse webkey.pem y
+  250  openstack object show warehouse webkey.pem 
+  251  ssh controller0
+  252  openstack hypervisor list
+  253  ssh controller0
+  254  ssh compute0
+  255  ssh controller0
+  256  source stackrc 
+  257  exit
+  258  source stackrc 
+  259  exit
+  260  source stackrc 
+  261  openstack workflow list | grep fernet
+  262  openstack workflow execution create tripleo.fernet_keys.v1.rotate_fernet_keys '{"container":"overcloud"}'
+  263  openstack workflow execution show 168d72b9-f683-41ab-baec-2e4eadc92cfa
+  264  exit
+  265  source Robert18rc 
+  266  cp osp-small.qcow2 /tmp/
+  267  guestfish -i --network -a /tmp/osp-small.qcow2 
+  268  openstack image create --disk-format qcow2 --public --min-ram 2048 --min-disk 10 --file /tmp/osp-small.qcow2 custom-image1
+  269  openstack image list
+  270  source William18rc 
+  271  openstack server create --flavor m1.petite --image custom-image1 --network engnet --key-name webkey --security-group ssh --security-group web --wait custome-web-server
+  272  openstack floating ip create public
+  273  openstack server add floating ip custome-web-server 172.25.250.101
+  274  curl 172.25.250.101
+  275  exit
+  276  source stackrc 
+  277  openstack network list
+  278  openstack subnet list
+  279  openstack subnet show management_subnet
+  280  source Robert18rc 
+  281  wget http://materials.example.com/heat/labserver-withfloatingip.yaml 
+  282  wget http://materials.example.com/heat/labserver-with-floatingip.yaml 
+  283  ll
+  284  vim webserver-env.yml
+  285  openstack subnet list
+  286  cat labserver-with-floatingip.yaml 
+  287  cat labserver-with-floatingip.yaml | grep private
+  288  cat labserver-with-floatingip.yaml | grep image
+  289  cat labserver-with-floatingip.yaml | grep key
+  290  cat labserver-with-floatingip.yaml | grep instance
+  291  cat labserver-with-floatingip.yaml | grep public
+  292  cat labserver-with-floatingip.yaml | grep private
+  293  cat webserver-env.yml 
+  294  vim labserver-with-floatingip.yaml 
+  295  openstack stack create -t labserver-with-floatingip.yaml -e webserver-env.yml --dry-run -c description HeatStack
+  296  source William18rc 
+  297  openstack stack create -t labserver-with-floatingip.yaml -e webserver-env.yml --dry-run -c description HeatStack
+  298  openstack stack create -t labserver-with-floatingip.yaml -e webserver-env.yml  HeatStack
+  299  openstack stack list
+  300  openstack server list
+  301  openstack stack list
+  302  history > ex210history1.txt
+  303  ll
+  304  cp ex210history* ex210
+  305  cd ex210/
+  306  ll
+  307  git add .
+  308  git commit -m "update"
+  309  git push
+  310  exit
+  311  scp root@controller0:/root/keyring .
+  312  ssh controller0
+  313  exit
+  314  scp root@controller0:/root/ceph.conf  .
+  315  ll
+  316  exit
+  317  source overcloudrc 
+  318  source Robert18rc 
+  319  source William18rc 
+  320  openstack server list
+  321  openstack server start web-server
+  322  openstack server start custome-web-server
+  323  openstack server start webserver
+  324  openstack server list
+  325  source Robert18rc 
+  326  manila type-create cephfstype false
+  327  manila create --name ceph-vol1 --share-type cephfstype cephfs 2
+  328  manila access-allow ceph-vol1 cephx could-user
+  329  manila share-export-location-list ceph-vol1
+  330  source William18rc 
+  331  openstack server create --flavor petite --image web --network engnet --network storagenet --key-name webkey --security-group web --security-group ssh --user-data web.sh --wait storage
+  332  openstack server create --flavor m1.petite --image web --network engnet --network storagenet --key-name webkey --security-group web --security-group ssh --user-data web.sh --wait storage
+  333  openstack floating ip create public
+  334  openstack server add floating ip storage 172.25.250.107
+  335  curl 172.25.250.107
+  336  ssh -i webkey.pem cloud-user@172.25.250.107
+  337  curl 172.25.250.107
+  338  ssh controller0
+  339  ssh director
+  340  scp -i webkey.pem keyring ceph.conf cloud-user@172.25.250.107:
+  341  ssh -i webkey.pem cloud-user@172.25.250.107
+  342  ssh controller0
+  343  ssh -i webkey.pem cloud-user@172.25.250.107
+  344  history 
+  345  source Robert18rc 
+  346  manila type-delete cephfstype false
+  347  history 
+  348  source William18rc 
+  349  manila create --name ceph-vol2 --share-type cephfstype cephfs 2
+  350  history 
+  351  manila access-allow ceph-vol2 cephx cloud-user
+  352  history 
+  353  manila share-export-location-list ceph-vol2
+  354  ssh -i webkey.pem cloud-user@172.25.250.107
+  355  exit
+  356  ls
+  357  sudo -i
+  358  exit
+  359  source R
+  360  source Robert18rc 
+  361  openstack server list
+  362  openstack server show storage
+  363  source William18rc 
+  364  openstack server show storage
+  365  source William18rc 
+  366  openstack server show storage
+  367  source Robert18rc 
+  368  openstack server show storage
+  369  source William18rc 
+  370  openstack server show storage
+  371  source William18rc 
+  372  openstack server show storage
+  373  source Robert18rc 
+  374  source William18rc 
+  375  openstack server show storage
+  376  source Robert18rc 
+  377  openstack role create troubleshoot
+  378  openstack role add --project Engineering --user William18 --user-domain Operations ade52ce731e54ce3b930884310a84771
+  379  source William18rc 
+  380  openstack server show storage
+  381  source Robert18rc 
+  382  source overcloudrc 
+  383  exit
+  384  source overcloudrc 
+  385  openstack domain create Sales
+  386  openstack project create Finance
+  387  openstack project delete ab7f00e971054d339f3fe88e77066213
+  388  openstack project create Finance --domain Sales
+  389  openstack project create --parent Finance --domain Sales Accountancy
+  390  openstack project create --parent 0a8ba56c32514dd0bedbe19b2ca65b75 --domain Sales Accountancy
+  391  openstack group create Accountants --domain Sales
+  392  openstack role add --group Accountants --group-domain Sales --project 0a8ba56c32514dd0bedbe19b2ca65b75 --project-domain Sales member
+  393  openstack role add --group Accountants --group-domain Sales --project 0a8ba56c32514dd0bedbe19b2ca65b75 --project-domain Sales member --inherited 
+  394  openstack role assignment list --group Accountants --project Accountancy --names 
+  395  openstack role assignment list --group Accountants --project 0a8ba56c32514dd0bedbe19b2ca65b75 --names 
+  396  openstack project delete 0a8ba56c32514dd0bedbe19b2ca65b75
+  397  openstack project list
+  398  openstack project delete 0a8ba56c32514dd0bedbe19b2ca65b75
+  399  source William18rc 
+  400  scp root@controller0:/root/keyring .
+  401  scp root@controller0:/root/ceph.conf  .
+  402  scp -i webkey.pem keyring ceph.conf cloud-user@172.25.250.107:
+  403  ssh -i webkey.pem cloud-user@172.25.250.107
+  404  source Robert18rc 
+  405  openstack hypervisor list
+  406  openstack hypervisor list -c Name -c State
+  407  openstack hypervisor list -c Host-Name -c State
+  408  openstack hypervisor list -c Host-name -c State
+  409  openstack hypervisor list
+  410  openstack hypervisor list -c Hostname -c State
+  411  source William18rc 
+  412  source Robert18rc 
+  413  openstack server list --host compute0.overcloud.example.com
+  414  openstack server list --host compute1.overcloud.example.com
+  415  openstack server migrate --live compute1.overcloud.example.com d00ab6dc-8e0e-4fad-b32a-93e7c71fb1db
+  416  openstack server list --host compute1.overcloud.example.com
+  417  openstack server migrate --live compute0.overcloud.example.com d00ab6dc-8e0e-4fad-b32a-93e7c71fb1db
+  418  openstack server list --host compute1.overcloud.example.com
+  419  ssh controller0
+  420  source overcloudrc 
+  421  openstack project create Finance1 --domain Sales
+  422  openstack project list
+  423  openstack project delete Accountancy
+  424  openstack project create --parent Finance1 --domain Sales Accountancy
+  425  openstack group list
+  426  openstack group create --domain Sales Accountants
+  427  openstack group list --domain Sales
+  428  openstack group delete 3c281e6624d541d3b15c097cbce3050d
+  429  openstack group list --domain Sales
+  430  openstack group create --domain Sales Accountants
+  431  openstack role add --group Accountants --group-domain Sales --project Accountancy --project-domain Sales member
+  432  openstack role assignment list --project Accountancy --domain Sales --names 
+  433  openstack role assignment list --project Accountancy --project-domain Sales --names 
+  434  openstack role assignment list --project Finance1 --project-domain Sales --names 
+  435  openstack role add --group Accountants --group-domain Sales --project Accountancy --project-domain Sales --inherited member
+  436  openstack role assignment list --project Finance1 --project-domain Sales --names 
+  437  openstack role assignment list --project Finance1 --project-domain Sales --names --user-domain Sales
+  438  openstack role assignment list --user-domain Sales --project Finance1 --names
+  439  openstack role assignment list --user-domain Sales --project Accountancy --names
+  440  openstack role assignment list --group-domain Sales --project Accountancy --names
+  441  openstack user create Natasha --domain Sales --password redhat
+  442  openstack user create Harry --domain Sales --password redhat
+  443  openstack group add user --group-domain Sales --user-domain Sales Accountants Natasha Harry
+  444  openstack role assignment list --project Finance1 --project-domain Sales --names --effective 
+  445  openstack role assignment list --project Accountancy --project-domain Sales --names --effective 
+  446  openstack role assignment list --user-domain Sales --project Finance1 --names
+  447  openstack role assignment list --project Finance1 --project-domain Sales --names --effective 
+  448  openstack role add --group Accountants --group-domain Sales --project Finance1 --project-domain Sales member
+  449  openstack role add --group Accountants --group-domain Sales --project Finance1 --project-domain Sales --inherited member
+  450  openstack role assignment list --user-domain Sales --project Finance1 --names
+  451  openstack role assignment list --user-domain Sales --project Accountancy --names
+  452  source Robert18rc 
+  453  openstack aggregate create aggregate_com0
+  454  openstack aggregate add host aggregate_com0 compute0.overcloud.example.com
+  455  openstack aggregate create aggregate_hci0
+  456  openstack aggregate add host aggregate_hci0 computehci0.overcloud.example.com
+  457  openstack aggregate set --property compute=0 aggregate_com0
+  458  openstack aggregate set --property compute=true aggregate_com0
+  459  openstack aggregate set --property computehci=true aggregate_hci0
+  460  openstack flavor create --disk 10 --ram 1024 --vcpus 2 default_com0
+  461  openstack flavor create --disk 10 --ram 1024 --vcpus 2 default_hci0
+  462  openstack flavor set --property compute=true default_com0
+  463  openstack flavor set --property computehci=true default_hci0
+  464  source William18rc 
+  465  openstack server create --flavor default_com0 --image web --network engnet --key-name webkey --security-group ssh --security-group web --user-data web.sh --wait aggregate_server
+  466  source R
+  467  source Robert18rc 
+  468  openstack server list --host compute0.overcloud.example.com 
+  469  openstack server list --host compute1.overcloud.example.com 
+  470  history 
+  471  openstack flavor show default_com0
+  472  openstack aggregate show default_com0
+  473  openstack aggregate show aggregate_com0
+  474  source Robert18rc 
+  475  openstack aggregate create outspread
+  476  openstack aggregate add host outspread computehci0.overcloud.example.com
+  477  openstack aggregate set --property distributed=true outspread
+  478  openstack aggregate show outspread
+  479  openstack flavor create --disk 10 --ram 1024 --vcpus 2 m1.tiny
+  480  openstack flavor set --property aggregate_instance_extra_specs=true m1.tiny
+  481  openstack flavor show m1.tiny
+  482  source stackrc 
+  483  sudo -i
+  484  curl http://materials.example.com/storage-swiftrings/swift_ring_rebalance.yaml -o /home/stack/swift_ring_rebalance.yaml
+  485  ansible-playbook -i /usr/bin/tripleo-ansible-inventory swift_ring_rebalance.yaml 
+  486  exit
+  487  sudo -i
+  488  ls
+  489  ansible-playbook -v -i ~/nfs-inventory.ini --extra="ansible_ssh_common_args='-o StrictHostKeyChecking=no'"  --become --become-user root --tags bar_setup_nfs_server ~/bar_nfs_setup.yaml
+  490  tripleo-ansible-inventory --ansible_ssh_user heat-admin --static-yaml-inventory /home/stack/tripleo-inventory.yaml
+  491  ansible-playbook -v -i ~/tripleo-inventory.yaml -e tripleo_backup_and_restore_exclude_paths_controller_non_bootrapnode=false  --extra="ansible_ssh_common_args='-o StrictHostKeyChecking=no'"  --become --become-user root --tags bar_setup_rear  ~/bar_rear_setup-controller.yaml
+  492  ls
+  493  ansible-playbook -v -i ~/tripleo-inventory.yaml  --extra="ansible_ssh_common_args='-o StrictHostKeyChecking=no'"  --become --become-user root --tags bar_create_recover_image bar_rear_create_restore_images-controller.yaml
+  494  exit
+  495  ll
+  496  history > ex210history2.txt
