@@ -1,0 +1,54 @@
+    1  sudo alternatives --config python
+    2  vim main2.yml 
+    3  ansible-playbook main2.yml 
+    4  git clone https://github.com/RedHatTraining/CL110.git
+    5  cd CL110/
+    6  ls
+    7  git checkout aglogows/satellite 
+    8  cd classroom/ansible-playbooks-novello/
+    9  ls
+   10  tmux 
+   11  sudo alternatives --config python
+   12  ansible-playbook main.yml 
+   13  tmux attach
+   14  sudo poweroff
+   15  ssh director
+   16  exit
+   17  ls
+   18  exit
+   19  ssh controller0
+   20  ll
+   21  ssh director
+   22  ll
+   23  ssh director
+   24  ssh controller0
+   25  ssh director
+   26  ssh controller0
+   27  ssh director
+   28  ssh computehci0
+   29  ssh compute0
+   30  ssh controller0
+   31  ssh director
+   32  ssh computehci0
+   33  history 
+   34  ssh director
+   35  ssh director
+   36  ssh controller0
+   37  ssh director
+   38  lab storage-object start 
+   39  lab identity-domain start
+   40  ssh director
+   41  showmount -utility
+   42  showmount -e utility
+   43  sudo mount utility:/ctl_plane_backups /mnt
+   44  df -h
+   45  cd /mnt/
+   46  ll
+   47  sudo tree 
+   48  ssh director
+   49  exit
+   50  ssh controller0
+   51  ssh director
+   52  ssh controller0
+   53  ssh director
+   54  history > history_workstation.txt

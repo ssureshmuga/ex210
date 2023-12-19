@@ -1,0 +1,141 @@
+    1  nmcli connection 
+    2  nmcli connection delete "System eth5"
+    3  poweroff 
+    4  poweroff
+    5  top
+    6  podman exec -it ceph-mon-controller0 ceph -s
+    7  podman exec -it ceph-mon-controller0 ceph tell osd.* injectargs '--osd_max_backfills 1 --osd_recovery_max_active 1 --osd_recovery_op_priority 1'
+    8  podman exec -it ceph-mon-controller0 ceph osd set noscrub
+    9   podman exec -it ceph-mon-controller0 ceph osd set nodeep-scrub
+   10  podman exec -it ceph-mon-controller0 ceph osd pool set vms pg_num 64 && podman exec -it ceph-mon-controller0 ceph osd pool set volumes pg_num 64   
+   11  podman exec -it ceph-mon-controller0  ceph osd pool set images pg_num 64 
+   12  podman exec -it ceph-mon-controller0 ceph osd pool set manila_data pg_num 64
+   13  podman exec -it ceph-mon-controller0 ceph osd pool set manila_metadata pg_num 64
+   14  podman exec -it ceph-mon-controller0 ceph -s
+   15  podman exec -it ceph-mon-controller0 ceph osd pool set vms pgp_num 64
+   16  podman exec -it ceph-mon-controller0 ceph osd pool set images pgp_num 64
+   17  podman exec -it ceph-mon-controller0 ceph osd pool set volumes pgp_num 64
+   18  podman exec -it ceph-mon-controller0 ceph osd pool set manila_data pgp_num 64
+   19  podman exec -it ceph-mon-controller0 ceph osd pool set manila_metadata pgp_num 64
+   20  podman exec -it ceph-mon-controller0 ceph -s
+   21  podman exec -it ceph-mon-controller0 ceph tell osd.* injectargs '--osd_max_backfills 1 --osd_recovery_max_active 3 --osd_recovery_op_priority 3'
+   22  podman exec -it ceph-mon-controller0 ceph osd unset noscrub
+   23  podman exec -it ceph-mon-controller0 ceph osd unset nodeep-scrub
+   24  podman exec -it ceph-mon-controller0 ceph -s
+   25  exit
+   26  vim /etc/hosts
+   27  ping satellite-dle
+   28  ip a
+   29  ls
+   30  ip a
+   31  nmcli dev
+   32  cd /etc/
+   33  ls -l
+   34  clear
+   35  ls -l
+   36  cd /var/lib/config-data/puppet-generated/octavia/etc/octavia/certs/
+   37  ls -l
+   38  cat client.pem 
+   39  vi client.pem 
+   40  vi client.pem 
+   41  systemctl -a | grep octavia
+   42  systemctl -a | grep octavia | awk '{print $1}'
+   43  for i in `systemctl -a | grep octavia | awk '{print $1}'`; do systemctl restart $i; done
+   44  cd
+   45  cd /var/log/containers/
+   46  ls -l
+   47  cd octavia/
+   48  ls -l
+   49  tail -100f worker.log
+   50  history
+   51  ovs-vsctl show
+   52  xit
+   53  exit
+   54  ovs-vsctl show
+   55  exit
+   56  ovs-vsctl show
+   57  cd /var/lib/config-data/puppet-generated/keystone/etc/keystone/fernet-keys/
+   58  ll
+   59  exit
+   60  cd /var/lib/config-data/puppet-generated/keystone/etc/keystone/fernet-keys/
+   61  ll
+   62  exit
+   63  podman exec -it rabbitmq-bundle-podman-0 /bin/bash
+   64  podman exec -it ceph-mon-controller0 /bin/bash
+   65  exit
+   66  podman cp ceph-mon-controller0:/root/keyring .
+   67  podman exec -it ceph-mon-controller0 /bin/bash
+   68  podman cp ceph-mon-controller0:/root/keyring .
+   69  ll
+   70  cat keyring 
+   71  exit
+   72  podman cp ceph-mon-controller0:/etc/ceph/ceph.conf .
+   73  ll
+   74  exit
+   75  podman exec -it ceph-mon-controller0 /bin/bash
+   76  exit
+   77  podman exec -it ceph-mon-controller0 ceph --name=client.manila --keyring=/etc/ceph/ceph.client.manila.keyring auth get-or-create client.cloud-user > keyring
+   78  cat keyring 
+   79  ls
+   80  exit
+   81  yum install python3-oslo-policy -y
+   82  podman exec -it nova_api oslopolicy-policy-generator --namespace nova> nova-policy.txt
+   83  cat nova-policy.txt 
+   84  podman exec -it nova_api oslopolicy-policy-generator --namespace nova | grep aggregate
+   85  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+   86  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json python -m json.tool
+   87  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+   88  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+   89  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+   90  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+   91  systemctl restart tripleo_nova_api 
+   92  podman ps | grep nova_api
+   93  podman exec -it nova_api oslopolicy-policy-generator --namespace nova | grep aggregate
+   94  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+   95  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+   96  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+   97  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+   98  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+   99  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  100  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+  101  podman exec -it nova_api oslopolicy-policy-generator --namespace nova | grep extended-server-attributes
+  102  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+  103  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  104  systemctl restart tripleo_nova_api 
+  105  podman exec -it nova_api oslopolicy-policy-generator --namespace nova | grep extended-server-attributes
+  106  podman ps | grep nova_api
+  107  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  108  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+  109  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  110  systemctl restart tripleo_nova_api 
+  111  podman ps | grep nova_api
+  112  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  113  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+  114  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  115  systemctl restart tripleo_nova_api 
+  116  podman ps | grep nova_api
+  117  vim /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json
+  118  cat /var/lib/config-data/puppet-generated/nova/etc/nova/policy.json | python -m json.tool
+  119  systemctl restart tripleo_nova_api 
+  120  podman ps | grep nova_api
+  121  cd /var/lib/config-data/puppet-generated/swift_ringbuilder/etc/swift/
+  122  ll
+  123  swift-ring-builder object.builder 
+  124  swift-ring-builder container.builder 
+  125  swift-ring-builder account.builder 
+  126  swift-ring-builder object.builder add z1-172.24.4.1:6000/d2 50
+  127  swift-ring-builder container.builder add z1-172.24.4.1:6001/d2 50
+  128  swift-ring-builder account.builder add z1-172.24.4.1:6002/d2 50
+  129  swift-ring-builder object.builder set_replicas 2
+  130  swift-ring-builder container.builder set_replicas 2
+  131  swift-ring-builder account.builder set_replicas 2
+  132  eixt
+  133  exit
+  134  podman restart swift_proxy swift_account_server swift_object_server swift_container_server 
+  135  cd /var/lib/config-data/puppet-generated/swift_ringbuilder/etc/swift/
+  136  swift-ring-builder object.builder 
+  137  swift-ring-builder container.builder 
+  138  swift-ring-builder account.builder 
+  139  exit
+  140  history 
+  141  history > history_contorller.txt
